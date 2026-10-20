@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explorer Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div id="welcome" class="welcome" role="dialog" aria-modal="true" aria-labelledby="wt">
+  <form id="startForm" class="wcard">
+    <div class="wemoji">🧭✨</div>
+    <h2 id="wt">Hello, little explorer!</h2>
+    <label for="nameIn">What is your name?</label>
+    <input id="nameIn" maxlength="20" autocomplete="off" placeholder="Type your name here">
+    <button type="submit">Let's go! 🚀</button>
+  </form>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<header class="top">
+  <svg id="mascot" class="mascot happy" viewBox="0 0 120 120" role="img" aria-label="Compass, your friendly guide">
+    <circle cx="60" cy="64" r="46" fill="#FFD54A" stroke="#2B1B5E" stroke-width="5"/>
+    <path d="M60 6 L68 24 L52 24 Z" fill="#FF4D8D" stroke="#2B1B5E" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="42" cy="58" r="7" fill="#2B1B5E"/><circle cx="78" cy="58" r="7" fill="#2B1B5E"/>
+    <circle cx="44.5" cy="55.5" r="2.4" fill="#fff"/><circle cx="80.5" cy="55.5" r="2.4" fill="#fff"/>
+    <circle cx="30" cy="76" r="7" fill="#FF9AA2" opacity=".8"/><circle cx="90" cy="76" r="7" fill="#FF9AA2" opacity=".8"/>
+    <path id="mouth" d="M44 78 Q60 94 76 78" fill="none" stroke="#2B1B5E" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+  <div class="hello">
+    <h1 id="greet">Hi, explorer!</h1>
+    <p>Ask me anything. I'll give you hints so you can discover the answer yourself.</p>
+    <div class="xp">
+      <span id="lvl">Level 1</span>
+      <div class="bar"><div id="fill"></div></div>
+      <span id="xpTxt">0 / 40 XP</span>
+    </div>
+  </div>
+  <div class="mood" role="group" aria-label="How are you feeling today?">
+    <span>Feeling?</span>
+    <button data-m="1" aria-label="Tough">😟</button>
+    <button data-m="2" aria-label="Okay">😐</button>
+    <button data-m="3" aria-label="Good">🙂</button>
+    <button data-m="4" aria-label="Amazing">🤩</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="desk">
+    <div id="chat" class="chat" aria-live="polite"></div>
+
+    <div class="chips" id="chips" aria-label="Question ideas">
+      <button type="button">Where should I start?</button>
+      <button type="button">Why does this work?</button>
+      <button type="button">What if I try a different way?</button>
+      <button type="button">How can I check my answer?</button>
+    </div>
+
+    <form id="askForm" class="ask">
+      <label for="q">What are you wondering about?</label>
+      <textarea id="q" rows="3" maxlength="500" placeholder="Type any question or problem you're stuck on..."></textarea>
+      <div class="levels" role="radiogroup" aria-label="Hint strength">
+        <label class="l1"><input type="radio" name="level" value="1" checked> Tiny nudge 🤏</label>
+        <label class="l2"><input type="radio" name="level" value="2"> Show a direction 🧭</label>
+        <label class="l3"><input type="radio" name="level" value="3"> Give me a scaffold</label>
+        <label class="l4"><input type="radio" name="level" value="4"> Explain it simply 🧸</label>
+      </div>
+      <div class="row">
+        <button type="submit" id="send">Ask Compass</button>
+        <button type="button" id="aha" class="aha">💡 I figured it out!</button>
+      </div>
+    </form>
+  </section>
+
+  <aside class="side">
+    <h2>My badges</h2>
+    <ul id="badges" class="badges"></ul>
+    <h2 class="gap">Field journal</h2>
+    <ul id="journalList" class="journal"><li class="empty">Your questions and big ideas will show up here.</li></ul>
+  </aside>
+</main>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
